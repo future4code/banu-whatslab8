@@ -83,3 +83,8 @@ outline: 0;
 background-color: transparent;
 margin-left: 10px;
 }
+.chatlist {
+  flex: 1;
+  background-color: #fff;
+  overflow-y: auto;
+}
