@@ -2,12 +2,20 @@ import React, { useState, useEffect} from "react";
 import './App.css';
 
 import ChatListItem from "./components/ChatListItem";
-
+import ChatIntro from "./components/ChatIntro";
+import ChatWindow from "./components/ChatWindow";
  
 
 export default () => {
 
-  const [chatlist, setChatList] = useState([{},{},{},{}]);
+  const [chatlist, setChatList] = useState([
+    {chatId: 1, title: 'Pedro', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
+    {chatId: 2, title: 'Caio', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
+    {chatId: 3, title: 'Marcelo', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
+    {chatId: 4, title: 'João', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
+  ]);
+
+  const [activeChat,setActiveChat] = useState({});
 
   return (
     <div className="app-window">
@@ -41,13 +49,21 @@ export default () => {
               {chatlist.map((item, key) =>(
                 <ChatListItem
                   key={key}
+                  active={true}
+                  onClick={()=>setActiveChat(chatlist[key])}
                 />
               ))}
           </div>
 
         </div>
         <div className="contentarea">
-        ...
+          {activeChat.chatId !== undefined &&
+          <ChatWindow />
+          }
+          {activeChat.chatId === undefined &&      
+
+           <ChatIntro />
+          }
         </div>        
     </div>
   );

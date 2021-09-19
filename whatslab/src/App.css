@@ -39,7 +39,7 @@ header {
   display: flex;
 }
 .contentarea {
-
+  flex: 1;
 }
 .header--btn{
  width: 40px;
@@ -87,4 +87,11 @@ margin-left: 10px;
   flex: 1;
   background-color: #fff;
   overflow-y: auto;
+}
+.chatlist::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.chatlist::-webkit-scrollbar-thumb{
+  background-color: rgba(0, 0,0, 0.2);
 }
